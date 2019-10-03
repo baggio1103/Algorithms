@@ -1,5 +1,4 @@
-public class SortLevel1 {
-    
+public class SortLevel{ 
     public static boolean BubbleSortStep(int[] array){
         boolean swapped = true;
         int temp;
@@ -28,6 +27,5 @@ public class SortLevel1 {
             array[i] = array[index];
             array[index] = min;
         }
-    }
-    
+    }    
 }
