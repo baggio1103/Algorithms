@@ -27,5 +27,18 @@ public class SortLevel{
             array[i] = array[index];
             array[index] = min;
         }
-    }    
+    }  
+    
+    public static void InsertionSortStep(int[] array, int step, int i){
+       int temp;
+       for (int j = step+i; j < array.length; j += step){
+           if (array[i] > array[j]){
+                temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                i += step;
+           }
+       }
+    }
+   
 }
