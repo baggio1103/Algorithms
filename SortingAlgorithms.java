@@ -29,16 +29,21 @@ public class SortLevel{
         }
     }  
     
-    public static void InsertionSortStep(int[] array, int step, int i){
-       int temp;
-       for (int j = step+i; j < array.length; j += step){
-           if (array[i] > array[j]){
-                temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-                i += step;
-           }
-       }
+    public static void InsertionSortStep(int[] array, int step, int i) {
+        int temp;
+        int index = i;
+        for (int j = i; j < array.length; j += step) {
+            if (array[index] > array[j]) {
+                temp = array[j];
+                for (int k = j; k >= i; k -= step) {
+                    if (k - step >= i) {
+                        array[k] = array[k - step];
+                    }
+                }
+                array[i] = temp;
+            }
+            index = j;
+        }
     }
-   
+    
 }
