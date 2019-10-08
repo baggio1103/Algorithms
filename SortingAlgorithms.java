@@ -81,6 +81,5 @@ public class SortLevel {
             return 3*sequence(iterator-1)+1;
         }
     }
-
-
+    
 }
