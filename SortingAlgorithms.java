@@ -40,24 +40,34 @@ public class SortLevel {
             array[index] = min;
         }
     }
-
+    
     public static void InsertionSortStep(int[] array, int step, int i) {
         int temp;
         int index = i;
         for (int j = i; j < array.length; j += step) {
             if (array[index] > array[j]) {
-                temp = array[j];
-                for (int k = j; k >= i; k -= step) {
-                    if (k - step >= i) {
-                        array[k] = array[k - step];
+                if (array[j] < array[i]) {
+                    temp = array[j];
+                    for (int k = j; k >= i; k -= step) {
+                        if (k - step >= i) {
+                            array[k] = array[k - step];
+                        }
+                    }
+                    array[i] = temp;
+                } else {
+                    for (int k = j; k > i; k -= step){
+                        if (((k - step) > i)&&(array[k] < array[k - step])){
+                            temp = array[k-step];
+                            array[k-step] = array[k];
+                            array[k] = temp;
+                        }
                     }
                 }
-                array[i] = temp;
             }
             index = j;
         }
     }
-
+    
     public static ArrayList<Integer> KnuthSequence(int array_size){
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 1; i < array_size;){
