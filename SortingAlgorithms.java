@@ -1,16 +1,28 @@
-public class SortLevel{ 
+import java.util.ArrayList;
+
+public class SortLevel {
+
     public static boolean BubbleSortStep(int[] array){
         boolean swapped = true;
         int temp;
-        for (int i = 0; i < array.length-1; i++){
-            if (array[i] > array[i+1]){
-                temp = array[i];
-                array[i] = array[i+1];
-                array[i+1] = temp;
-                swapped = false;
+            for (int i = 0; i < array.length - 1; i++) {
+                if (array[i] > array[i + 1]) {
+                    temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                    swapped = false;
+                }
+            }
+        return swapped;
+    }
+
+    public static void ShellSort(int[] array){
+        ArrayList<Integer> list = KnuthSequence(array.length);
+        for (int i = 0; i < list.size(); i++){
+            for (int k = 0; k < list.get(i); k++){
+                InsertionSortStep(array,list.get(i),k);
             }
         }
-        return swapped;
     }
 
     public static void SelectionSortStep(int[] array, int i){
@@ -27,8 +39,8 @@ public class SortLevel{
             array[i] = array[index];
             array[index] = min;
         }
-    }  
-    
+    }
+
     public static void InsertionSortStep(int[] array, int step, int i) {
         int temp;
         int index = i;
@@ -45,5 +57,30 @@ public class SortLevel{
             index = j;
         }
     }
-    
+
+    public static ArrayList<Integer> KnuthSequence(int array_size){
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 1; i < array_size;){
+            list.add(0,i);
+            i = 3*i+1;
+        }
+        return list;
+    }
+
+    public static void print(int[] array){
+        for (int i : array) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    public static int sequence(int iterator){
+        if (iterator == 1){
+            return 1;
+        }else {
+            return 3*sequence(iterator-1)+1;
+        }
+    }
+
+
 }
