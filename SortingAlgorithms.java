@@ -70,9 +70,9 @@ public class SortLevel {
     
     public static ArrayList<Integer> KnuthSequence(int array_size){
         ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 1; i < array_size;){
-            list.add(0,i);
-            i = 3*i+1;
+        int i = 0;
+        while ((i = 3 * i + 1) <= array_size) {
+            list.add(0, i);
         }
         return list;
     }
