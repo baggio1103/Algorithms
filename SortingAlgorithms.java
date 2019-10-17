@@ -92,4 +92,37 @@ public class SortLevel {
         }
     }
     
+    public static int ArrayChunk(int[] array){
+        int i = 0;
+        int j = array.length-1;
+        int base = array.length/2;
+        int temp;
+        while (true){
+            while (array[i] < array[base]){
+                i++;
+            }
+            while (array[j] > array[base]){
+                j--;
+            }
+            if ((i == (j - 1)) && (array[i] < array[j])){
+                temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                if (array[i] == array[base]){
+                    base = i;
+                }else {
+                    base = j;
+                }
+                i = 0;
+                j = array.length/2;
+            } else if ((i == j) || ((array[i] < array[j]) && i == j - 1)){
+                return base;
+            }else {
+                temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+    }
+    
 }
