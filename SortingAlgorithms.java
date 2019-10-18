@@ -40,23 +40,6 @@ public class SortLevel {
         }
     }
 
-//    public static void InsertionSortStep(int[] array, int step, int i) {
-//        int temp;
-//        int index = i;
-//        for (int j = i; j < array.length; j += step) {
-//            if (array[index] > array[j]) {
-//                temp = array[j];
-//                for (int k = j; k >= i; k -= step) {
-//                    if (k - step >= i) {
-//                        array[k] = array[k - step];
-//                    }
-//                }
-//                array[i] = temp;
-//            }
-//            index = j;
-//        }
-//    }
-
     public static void InsertionSortStep(int[] array, int step, int i) {
         int temp;
         int index = i;
@@ -131,8 +114,15 @@ public class SortLevel {
         int index = array.length/2;
         int frame = array[index];
         int temp;
-
+        boolean goTo = false;
         while (true){
+            if (goTo){
+                 i = 0;
+                 j = array.length-1;
+                 index = array.length/2;
+                 frame = array[index];
+                 goTo = false;
+            }
             while (array[i] < frame){
                 i++;
             }
@@ -148,8 +138,7 @@ public class SortLevel {
                 }else if (array[j] == frame){
                     index = j;
                 }
-                i = 0;
-                j = array.length/2;
+                goTo = true;
             } else if ((i == j) || ((array[i] < array[j]) && i == j - 1)){
                 return index;
             }else {
