@@ -145,7 +145,7 @@ public class SortLevel {
                 array[j] = temp;
                 if (array[i] == frame){
                     index = i;
-                }else {
+                }else if (array[j] == frame){
                     index = j;
                 }
                 i = 0;
