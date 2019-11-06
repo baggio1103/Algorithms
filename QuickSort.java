@@ -10,11 +10,16 @@ public class SortLevel {
     }
   
   public static void QuickSortTailOptimization( int[] array, int left, int right ){
-      while (left < right){
-          int pivot = ArrayChunk(array, left, right);
-          QuickSortTailOptimization(array, left, pivot - 1);
-          left = pivot+1;
-      }
+           while (left < right){
+            int pivot = ArrayChunk(array, left, right);
+            if (pivot - left < right - pivot){
+                QuickSort(array, left, pivot-1, times++);
+                left = pivot + 1;
+            }else {
+                QuickSort(array, pivot+1, right, times++);
+                right = pivot-1;
+            }
+        }
   }
 
 
