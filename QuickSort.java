@@ -8,6 +8,15 @@ public class SortLevel {
             QuickSort(array, base+1, right);
         }
     }
+  
+  public static void QuickSortTailOptimization( int[] array, int left, int right ){
+      while (left < right){
+          int pivot = ArrayChunk(array, left, right);
+          QuickSortTailOptimization(array, left, pivot - 1);
+          left = pivot+1;
+      }
+  }
+
 
     public static int ArrayChunk(int[] array, int left, int right){
         int i = left;
