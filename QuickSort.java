@@ -85,7 +85,4 @@ public class SortLevel {
             }
         }
     }
-
-  
-  
 }  
