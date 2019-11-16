@@ -13,10 +13,10 @@ public class SortLevel {
            while (left < right){
             int pivot = ArrayChunk(array, left, right);
             if (pivot - left < right - pivot){
-                QuickSort(array, left, pivot-1, times++);
+                QuickSort(array, left, pivot-1);
                 left = pivot + 1;
             }else {
-                QuickSort(array, pivot+1, right, times++);
+                QuickSort(array, pivot+1, right);
                 right = pivot-1;
             }
         }
