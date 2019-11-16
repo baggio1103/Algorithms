@@ -68,4 +68,24 @@ public class SortLevel {
             }
         }
     }
+ 
+  public static ArrayList<Integer> KthOrderStatisticsStep(int[] Array, int L, int R, int k ){
+     ArrayList<Integer> list = new ArrayList<>();
+     while (true){
+         int pivot = ArrayChunk(Array, L, R);
+            if (pivot == k){
+                list.add(L);
+                list.add(R);
+                return list;
+            }else if (pivot > k){
+                R = pivot - 1;
+            }
+            else {
+                L = pivot + 1;
+            }
+        }
+    }
+
+  
+  
 }  
