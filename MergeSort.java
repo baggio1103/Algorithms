@@ -2,9 +2,7 @@ import java.util.ArrayList;
 public class MergeSort {
     
     public static ArrayList<Integer> MergeSort(ArrayList<Integer> array){
-        System.out.println(array);
         sort(array, 0, array.size()-1);
-        System.out.println(array);
         return array;
     }
 
