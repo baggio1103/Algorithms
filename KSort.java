@@ -4,7 +4,7 @@ public class ksort {
     public String[] items;
 
     public ksort(){
-        int size = 100 * (alphabet.length() - 1) + 10 * 9 + 9;
+        int size = 100 * (alphabet.length() - 1) + 10 * 9 + 10;
         items = new String[size];
     }
 
