@@ -25,18 +25,11 @@ public class BinarySearch {
             } else if (array[middle] < N) {
                 Left = middle + 1;
             }
-            // in this point indices are fully formed
         }
     }
 
     public int GetResult(){
-        if (found == 1){
-            return 1;
-        }else if (found == -1){
-            return found;
-        }else {
-            return 0;
-        }
+        return found;
     }
 
 }
