@@ -1,5 +1,4 @@
 public class BinarySearch {
-
     public int Left;
     public int Right;
     public int found;
