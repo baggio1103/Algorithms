@@ -11,7 +11,7 @@ public class BinarySearch {
         this.Right = array.length-1;
         found = 0;
     }
-    
+
     public void Step(int N){
         int middle = (Right + Left) / 2;
         if (found == 0){
@@ -27,6 +27,8 @@ public class BinarySearch {
 
             if (Left == Right){
                 found = 1;
+            }else if (Left > Right){
+                found = -1;
             }
         }
     }
@@ -34,7 +36,5 @@ public class BinarySearch {
     public int GetResult(){
         return found;
     }
-    
+
 }
-
-
