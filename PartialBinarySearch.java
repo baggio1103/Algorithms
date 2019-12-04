@@ -2,6 +2,7 @@ public class BinarySearch {
     public int Left;
     public int Right;
     public int found;
+    public int result;
     public int[] array;
 
     public BinarySearch(int[] array){
@@ -16,8 +17,10 @@ public class BinarySearch {
         if (found == 0){
             if (Left > Right){
                 found = -1;
+                result = found;
             }else if(array[middle] == N) {
                 found = 1;
+                result = found;
             }else if (array[middle] > N){
                 Right = middle - 1;
             }else if (array[middle] < N){
@@ -25,8 +28,10 @@ public class BinarySearch {
             }
             if (Left == Right && array[Left] == N){
                 found = 1;
+                result = found;
             }else if (Left >= Right){
                 found = -1;
+                result = found;
             }
         }
     }
@@ -37,7 +42,7 @@ public class BinarySearch {
 
         while (index < array.length){
             if (array[index] == N){
-                found = 1;
+                result = 1;
                 return true;
             }else if (array[index] < N){
                 i++;
@@ -60,16 +65,17 @@ public class BinarySearch {
         }
 
         //by this point we will have already arranged Left and Right borders
-        // where the desired value may be.      
+        // where the desired value may be
         while (found == 0) {
             Step(N);
         }
-
-        return found == 1;
+        result = found;
+        found = 0;
+        return result == 1;
     }
 
-    public int GetResult(){
-        return found;
+    public int GetResult() {
+        return result;
     }
-
+    
 }
