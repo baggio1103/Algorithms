@@ -43,13 +43,19 @@ public class BinarySearch {
                 i++;
                 index = (int) (Math.pow(2, i) - 2);
                 if (index >= array.length){
+                    // if index is greater than or equal to array length,
+                    // we make Left equal to the previous value of index
+                    // and Right equal to array length  -1
                     Left = (int) (1 + Math.pow(2, (i-1)) - 2);
                     Right = array.length-1;
                 }
             }else if (array[index] > N){
-                index = array.length;
+                //if the element in the given index is greater than the desired value,
+                // we make Left equal to the previous value if index
+                //and Right equal to index - 1;
+                Right = index-1;
                 Left = (int) (1 + Math.pow(2, (i-1)) - 2);
-                Right = index;
+                index = array.length;
             }
         }
 
