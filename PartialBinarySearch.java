@@ -60,9 +60,11 @@ public class BinarySearch {
         }
 
         //by this point we will have already arranged Left and Right borders
-        // where the desired value may be.         
+        // where the desired value may be.      
+        while (found == 0) {
             Step(N);
-        
+        }
+
         return found == 1;
     }
 
