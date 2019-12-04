@@ -5,20 +5,12 @@ import static org.junit.Assert.*;
 public class BinarySearchTest {
     @Test
     public void gallopingSearch() {
-        int[] array = {1, 3, 7, 11, 22, 34, 44, 51, 56, 60, 67, 70, 73, 77, 88, 90, 93, 99, 100};
+        int[] array = new int[99];
+        for (int i = 0; i < 99; i++){
+            array[i] = i+1;
+        }
         BinarySearch binary = new BinarySearch(array);
-        assertTrue(binary.GallopingSearch(array, 100));
-        binary.found = 0;
-        assertTrue(binary.GallopingSearch(array,77));
-        binary.found = 0;
-        assertFalse(binary.GallopingSearch(array, 55));
-        binary.found = 0;
-        assertTrue(binary.GallopingSearch(array, 77));
-        binary.found = 0;
-        assertFalse(binary.GallopingSearch(array, -11));
-        binary.found = 0;
-        assertFalse(binary.GallopingSearch(array, 111));
-        binary.found = 0;
-        assertTrue(binary.GallopingSearch(array, 56));
+        assertTrue(binary.GallopingSearch(array, 49));
+        assertEquals(1, binary.GetResult());
     }
 }
