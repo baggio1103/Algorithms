@@ -4,37 +4,21 @@ import static org.junit.Assert.*;
 
 public class BinarySearchTest {
     @Test
-    public void getResult() {
-        int[] array = new int[99];
-        for(int i = 1; i < 100; i++){
-            array[i-1] = i;
-        }
+    public void gallopingSearch() {
+        int[] array = {1, 3, 7, 11, 22, 34, 44, 51, 56, 60, 67, 70, 73, 77, 88, 90, 93, 99, 100};
         BinarySearch binary = new BinarySearch(array);
-        binary.Step(49);// 49 24
-        assertEquals(0, binary.GetResult());
-        assertEquals(0, binary.Left);
-        assertEquals(48, binary.Right);
-        binary.Step(49);
-        assertEquals(0, binary.GetResult());
-        assertEquals(25, binary.Left);
-        assertEquals(48, binary.Right);
-        binary.Step(49);
-        assertEquals(0, binary.GetResult());
-        assertEquals(37, binary.Left);
-        assertEquals(48, binary.Right);
-        binary.Step(49);
-        assertEquals(0, binary.GetResult());
-        assertEquals(43, binary.Left);
-        assertEquals(48, binary.Right);
-        binary.Step(49);
-        assertEquals(0, binary.GetResult());
-        assertEquals(46, binary.Left);
-        assertEquals(48, binary.Right);
-        binary.Step(49);
-        assertEquals(0, binary.GetResult());
-        assertEquals(48, binary.Left);
-        assertEquals(48, binary.Left);
-        binary.Step(49);
-        assertEquals(1, binary.GetResult());
+        assertTrue(binary.GallopingSearch(array, 100));
+        binary.found = 0;
+        assertTrue(binary.GallopingSearch(array,77));
+        binary.found = 0;
+        assertFalse(binary.GallopingSearch(array, 55));
+        binary.found = 0;
+        assertTrue(binary.GallopingSearch(array, 77));
+        binary.found = 0;
+        assertFalse(binary.GallopingSearch(array, -11));
+        binary.found = 0;
+        assertFalse(binary.GallopingSearch(array, 111));
+        binary.found = 0;
+        assertTrue(binary.GallopingSearch(array, 56));
     }
 }
